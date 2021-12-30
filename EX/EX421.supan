@@ -1,0 +1,40 @@
+# A TEST MODEL
+
+node 1 0 0
+node 2 1 0
+
+material Elastic1D 1 1E2
+material Viscosity02 2 .4 1E2 1E2 1E2 1E2 2E2 2E1 1
+
+element T2D2 1 1 2 1 1
+element Damper02 2 1 2 2 1 true 0 .5
+
+mass 3 2 1E-3 1
+
+fix 1 P 1
+fix 2 2 2
+
+amplitude Sine 1 4 1
+
+initial velocity 31.41592654 1 2
+
+displacement 2 1 20 1 2
+
+hdf5recorder 1 Element S 2
+hdf5recorder 2 Element E 2
+hdf5recorder 3 Element VD 2
+hdf5recorder 4 Element VS 2
+
+step dynamic 1 4
+set ini_step_size 2E-3
+set fixed_step_size true
+
+converger RelIncreDisp 1 1E-8 4 1
+
+analyze
+
+peek node 2
+
+save recorder 1 2 3 4
+
+exit

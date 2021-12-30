@@ -1,0 +1,35 @@
+\documentclass[3p,sort&compress,11pt,fleqn,review]{elsarticle}
+\bibliographystyle{elsarticle-num-names}
+\usepackage{amsmath,amsfonts,amssymb,siunitx,float,subcaption,setspace,booktabs,diagbox,bm}
+\usepackage[ruled,vlined,nofillcomment]{algorithm2e}
+\journal{Mechanical Systems and Signal Processing}
+\newcommand*{\md}[1]{\mathrm{d}#1}
+\newcommand*{\mT}{\mathrm{T}}
+\newcommand*{\sign}[1]{\mathrm{sign}\left(#1\right)}
+\newcommand*{\pfrac}[2]{\dfrac{\partial#1}{\partial#2}}
+\newcommand*{\ddfrac}[2]{\dfrac{\md{#1}}{\md{#2}}}
+\newcommand*{\figref}[1]{Fig.~\ref{#1}}
+\newcommand*{\eqsref}[1]{Eq.~(\ref{#1})}
+\newcommand*{\tabref}[1]{Table~\ref{#1}}
+\newcommand*{\mathbold}[1]{\bm{#1}}
+\begin{document}
+\begin{abstract}
+In this work, an extended numerical model for viscous dampers, which can be deemed as a generalised Newtonian fluid model, is proposed based on the conventional power-law fluid viscosity. With a flexible definition of damping coefficient, a wide range of damper response can be simulated using the new damper model. An efficient direct integration algorithm with an iterative scheme is proposed for the state determination of the corresponding Maxwell model that employs the proposed dashpot and spring with either elastic or elastoplastic response. Compared to an ODE solver based approach, which has limitations in terms of applicability/accuracy, compatibility/consistency and efficiency/robustness, the proposed algorithm has a higher computational performance and is less sensitive to numerical instability issues. The proposed viscous damper model and the state determination algorithm can be readily used in simulations of various damped dynamic systems.
+\end{abstract}
+\begin{keyword}
+rate--dependent viscous damper\sep
+Maxwell model\sep
+iterative algorithm\sep
+response history analysis\sep
+negative--stiffness
+\end{keyword}
+\begin{frontmatter}
+\title{Numerical Simulation of Generalised {M}axwell--type Viscous Dampers with an Efficient Iterative Algorithm}
+\author[add1]{Theodore~L.~Chang\corref{tlc}}\ead{tlcfem@gmail.com}
+\author[add1]{Chin-Long~Lee}
+\cortext[tlc]{corresponding author}
+\address[add1]{Department of Civil and Natural Resources Engineering, University of Canterbury, Christchurch, New Zealand, 8041.}
+\end{frontmatter}
+\input{BODY}
+\bibliography{DAMPER}
+\end{document}
