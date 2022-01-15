@@ -66,9 +66,9 @@ Apart from the arctangent function, other types of sigmoid curves can also be us
 \end{gather}
 It shall be noted that the derivatives of \eqsref{eq:arctan_transition} have a simpler form than that of the above definition. Other simple functions such as a linear function can also be applied, in which the transition range can be explicitly defined.
 
-The quadrant modification can be customised to mimic the effect of negative--stiffness damping \citep[see][]{Iemura2009,Hoegsberg2011,Zhou2015,Javanbakht2018} by choosing large $\eta_2$ and $\eta_4$ and small $\eta_1$ and $\eta_3$. Further elaborations are shown in numerical examples. Readers who are interested in practical applications of such a quadrant damper can refer to, for example, the work by \citet{Hazaveh2017}.
+The quadrant modification can be customised to mimic the effect of negative-stiffness damping \citep[see][]{Iemura2009,Hoegsberg2011,Zhou2015,Javanbakht2018} by choosing large $\eta_2$ and $\eta_4$ and small $\eta_1$ and $\eta_3$. Further elaborations are shown in numerical examples. Readers who are interested in practical applications of such a quadrant damper can refer to, for example, the work by \citet{Hazaveh2017}.
 \subsubsection{Bell Modification Example}
-A bell--shaped damping coefficient distribution in terms of both strain and strain rate is shown in \figref{fig:eta_example2} as an additional example. Similar definition can be used to model some special devices that adopt relief valves which may be activated when strain (rate) exceeds a certain limit. The corresponding analytical expression of $\eta$ used is
+A bell-shaped damping coefficient distribution in terms of both strain and strain rate is shown in \figref{fig:eta_example2} as an additional example. Similar definition can be used to model some special devices that adopt relief valves which may be activated when strain (rate) exceeds a certain limit. The corresponding analytical expression of $\eta$ used is
 \begin{gather}
 \eta\left(\varepsilon,\dot\varepsilon\right)=\dfrac{2}{\pi}\arctan\left(g_1-g_1g_2\sqrt{2\varepsilon^2+\dot\varepsilon^2}\right)+2,
 \end{gather}
@@ -219,7 +219,7 @@ $k\leftarrow{}k+1$\;
 \caption{state determination at material level using scalar formulation}\label{algo:iterative_algorithm}
 \end{algorithm}
 \subsection{A Simple Case}
-In case of nonlinear spring and constant damping coefficient $\eta$,
+In the case of nonlinear spring and constant damping coefficient $\eta$,
 \begin{gather}
 \dfrac{\md{\sigma_s}}{\md{\varepsilon_s}}=E(\varepsilon_s),\qquad\pfrac{\sigma_d}{\varepsilon_d}=0,\qquad\pfrac{\sigma_d}{\dot\varepsilon_d}=\eta\alpha\left\lvert\dot\varepsilon_d\right\rvert^{\alpha-1}.
 \end{gather}
@@ -246,7 +246,7 @@ Since $\sigma_s=\sigma_d$, in fact, any weighted average with non-zero weights c
 \end{gather}
 in which $\mathbold{a}=\begin{bmatrix}
 \Delta\varepsilon&\Delta\dot\varepsilon
-\end{bmatrix}^\mT$ is the increments of total strain and strain rate and $\pfrac{\mathbold{R}}{\mathbold{x}}=\mathbold{J}$. Thus,
+\end{bmatrix}^\mT$ is the increments of total strain and total strain rate and $\pfrac{\mathbold{R}}{\mathbold{x}}=\mathbold{J}$. Thus,
 \begin{gather}\label{eq:internal}
 \pfrac{\mathbold{x}}{\mathbold{a}}=\begin{bmatrix}\pfrac{\mathbold{x}}{\Delta\varepsilon}&\pfrac{\mathbold{x}}{\Delta\dot\varepsilon}\end{bmatrix}=-\mathbold{J}^{-1}\pfrac{\mathbold{R}}{\mathbold{a}}=\dfrac{1}{\det{\mathbold{J}}}\begin{bmatrix}
 	\pfrac{\sigma_d}{\varepsilon_d}\beta\Delta{}t                                               & \pfrac{\sigma_d}{\dot\varepsilon_d}\beta\Delta{}t                                                     \\[3mm]
@@ -304,7 +304,7 @@ Given that $\mathbold{J}$ is not strictly invertible, apart from the aforementio
 go to Algorithm \ref{algo:iterative_algorithm}\;
 \If{$k=k_{max}$}{
 set all increments to zero $\Delta\varepsilon_s=\Delta\varepsilon_d=\Delta\dot\varepsilon_d=0$\;
-set trial state to currrent state $\left(\cdot\right)^n\rightarrow\left(\cdot\right)^{n+1}$\;
+set trial state to current state $\left(\cdot\right)^n\rightarrow\left(\cdot\right)^{n+1}$\;
 stack increments $\Delta\varepsilon$ and $\Delta\dot\varepsilon$ to be iterated out in the next substep\;
 \tcp{record the number of consecutive unconverged substeps}$c=c+1$\;
 (optional) \If{$c=c_{max}$}{\Return failure\;}
@@ -322,7 +322,7 @@ For brevity, in the following numerical examples, all units are omitted since th
 \subsection{The Generalised Damper}
 To illustrate the capability of the proposed viscous model, a sensitivity study of model parameters of the quadrant damper shown in Section \ref{sec:quadrant_damper} is first conducted. Since parameter calibration is not the main focus of this paper, all adopted values will not be justified. Rather, they should be determined by experimental data. This example also serves as a numerical solution to the device presented by \citet{Hazaveh2017}.
 \subsubsection{Effect of Quadrant Damping Coefficient}
-Different combinations of damping coefficients can be adopted to simulate various responses. \figref{fig:mod} presents some examples to showcase the versatility of the quadrant modification. Different values of four damping coefficients $\eta_1$, $\eta_2$, $\eta_3$ and $\eta_4$ can be freely combined to generate various types of response. For example, choosing small values for $\eta_1$/$\eta_3$ and large values for $\eta_2$/$\eta_4$ produces a negative--stiffness effect, which leads to lowered damping force when displacement and velocity are of the same sign. This helps reduce the maximum force demand in certain applications. Parameters $\alpha=0.4$, $g_1=g_2=1$, $v=1$ are used. A sinusoidal displacement excitation with magnitude of $20$ and period of \SI{4}{\second} is used. The reference curve is obtained by using constant $\eta=100$ for all four quadrants.
+Different combinations of damping coefficients can be adopted to simulate various responses. \figref{fig:mod} presents some examples to showcase the versatility of the quadrant modification. Different values of four damping coefficients $\eta_1$, $\eta_2$, $\eta_3$ and $\eta_4$ can be freely combined to generate various types of response. For example, choosing small values for $\eta_1$/$\eta_3$ and large values for $\eta_2$/$\eta_4$ produces a negative-stiffness effect, which leads to lowered damping force when displacement and velocity are of the same sign. This helps reduce the maximum force demand in certain applications. Parameters $\alpha=0.4$, $g_1=g_2=1$, $v=1$ are used. A sinusoidal displacement excitation with magnitude of $20$ and period of \SI{4}{\second} is used. The reference curve is obtained by using constant $\eta=100$ for all four quadrants.
 \begin{figure}[htb]
 \centering\scriptsize
 \begin{subfigure}{.49\textwidth}\centering
@@ -356,7 +356,7 @@ For some analyses, for example, forced vibrations with the period of external lo
 \includegraphics[page=5]{PICCOLLECTION}
 \caption{$\alpha=0.6$}\label{fig:para_b}
 \end{subfigure}
-\caption{effect of different $v$ on the response of quandrant dashpot model}
+\caption{effect of different $v$ on the response of quadrant dashpot model}
 \end{figure}
 A properly chosen cubic replacement size $v$ can bound the maximum $\partial\sigma_d/\partial\dot\varepsilon_d$ to a reasonable range, so that numerical difficulties can be alleviated. \figref{fig:para_a} shows the comparisons of force/stress response by using different $v$ values. The damper used has the following parameters: $\alpha=0.1$, $\eta_1=\eta_3=1$, $\eta_2=\eta_4=100$ and $g_1=g_2=10$. The force response of each quadrant can be customised independently.
 
@@ -368,10 +368,10 @@ The transition zones can be controlled by adjusting steepness parameters $g_1$ a
 \begin{figure}[htb]
 \centering\scriptsize
 \includegraphics[page=10]{PICCOLLECTION}
-\caption{effect of steep parameter $g$ on the customisable response of quandrant dashpot model}\label{fig:steep}
+\caption{effect of steep parameter $g$ on the customisable response of quadrant dashpot model}\label{fig:steep}
 \end{figure}
 \subsection{The Maxwell Model}
-The generalised Maxwell model can be adopted when the connected brace is not sufficiently rigid. Plasticity may develop in braces as another form of energy dissipation. As can be seen later, there is some lagging between dashpot and total response. Solely using an linear elastic spring may not be accurate for some applications.
+The generalised Maxwell model can be adopted when the connected brace is not sufficiently rigid. Plasticity may develop in braces as another form of energy dissipation. As can be seen later, there is some lagging between dashpot and total response. Solely using a linear elastic spring may not be accurate for some applications.
 \subsubsection{Soft Elastic Spring}
 To illustrate the difference of responses produced by different inputs, \figref{fig:maxwell_sep} presents a basic example of the Maxwell model (linear elastic string and conventional viscous dashpot with constant $\eta$) using $\alpha=0.4$, $E=100$, $\eta=100$ and $v=1$. A sinusoidal wave with a period of \SI{4}{\second} and an amplitude of \num{20} is adopted as the external displacement load.
 \begin{figure}[htb]
@@ -436,7 +436,7 @@ As aforementioned, with an ODE solver based approach, the strain and strain rate
 \includegraphics[page=21]{PICCOLLECTION}
 \caption{comparison of dashpot response between the proposed method and ODE solver with a soft spring}\label{fig:two_method}
 \end{figure}
-\figref{fig:two_method} shows the comparison of dashpot response of two methods in solving the previous example with a soft spring ($EA=\num[print-unity-mantissa=false]{e2}$). The difference mainly concentrates around the transition region, which is caused by the different damping coefficients evaluated by different strains and strain rates. Although the ODE solver can still produce seemingly reasonable result, it is theoretically incorrect (see the discussion on applicability in \S~\ref{sec:ode_issue}). Whether this is a major concern depends on the specific parameter set used to define the model.
+\figref{fig:two_method} shows the comparison of dashpot response of two methods in solving the previous example with a soft spring ($EA=100$). The difference mainly concentrates around the transition region, which is caused by the different damping coefficients evaluated by different strains and strain rates. Although the ODE solver can still produce seemingly reasonable result, it is theoretically incorrect (see the discussion on applicability in \S~\ref{sec:ode_issue}). Whether this is a major concern depends on the specific parameter set used to define the model.
 \subsection{A Practical Example With Bilinear Dashpot}
 An adaptive ODE solver based approach has been implemented and adopted to model a bilinear dashpot \citep{Akcelyan2018}. The stress feedback is defined to be
 \begin{gather}
@@ -502,11 +502,11 @@ To illustrate the usage of the proposed algorithm with an elasto-plastic spring,
 \end{figure}
 Similar to the case with elastic spring, the local iteration takes on average three iterations to achieve convergence. With the same amount of function evaluations, which is significantly smaller than that in the ODE solver based approach, the proposed algorithm is able to converge reliably to a small tolerance, which is \num[print-unity-mantissa=false]{e-11} in the adopted example.
 \section{Conclusions}
-In this paper, the classic viscous damper model has been extended to accommodate more generalised response to provide a robust numerical tool to model a wide range of damper devices. Two simple modifications are presented as basic examples. Apart from \eqsref{eq:arctan_transition}, other forms of damper coefficient $\eta\left(\varepsilon,\dot{\varepsilon}\right)$ can be adopted to define the extended power-law model. Flexible response, including negative--stiffness type, can be produced via proper crafting of damper coefficient. Since the modification is essentially one type of generalised Newtonian viscosity models, other similar viscous models can also be applied. The semi-active control schemes can be accounted for in the definition of damper coefficient $\eta\left(\varepsilon,\dot{\varepsilon}\right)$. Moreover, $\eta\left(\varepsilon,\dot{\varepsilon}\right)$ can be further extended to be a function of any strain and strain rate components of the system, allowing more flexible control of force feedback (e.g., based on system energy and/or its history) that resembles active control schemes.
+In this paper, the classic viscous damper model has been extended to accommodate more generalised response to provide a robust numerical tool to model a wide range of damper devices. Two simple modifications are presented as basic examples. Apart from \eqsref{eq:arctan_transition}, other forms of damper coefficient $\eta\left(\varepsilon,\dot{\varepsilon}\right)$ can be adopted to define the extended power-law model. Flexible response, including negative-stiffness type, can be produced via proper crafting of damper coefficient. Since the modification is essentially one type of generalised Newtonian viscosity models, other similar viscous models can also be applied. The semi-active control schemes can be accounted for in the definition of damper coefficient $\eta\left(\varepsilon,\dot{\varepsilon}\right)$. Moreover, $\eta\left(\varepsilon,\dot{\varepsilon}\right)$ can be further extended to be a function of any strain and strain rate components of the system, allowing more flexible control of force feedback (e.g., based on system energy and/or its history) that resembles active control schemes.
 
 The state determination algorithm has been derived based on an iterative scheme and strictly complies with the mathematical model. It overcomes shortcomings (issues in applicability, compatibility and efficiency) of an ODE solver based approach and is much computationally efficient and accurate. The proposed algorithm is able to provide tangent moduli that can be used to recover global quadratic convergence rate which would provide benefits to global solving algorithms. Other solutions do not possess such a feature. Thus the proposed algorithm is efficient at both local and global levels.
 
-By incorporating a controllable cubic replacement in the original power-law model, and a stability control algorithm in state determination, major numerical difficulties due to unbounded/large derivatives can be alleviated. The modified model with the proposed algorithm shows versatility and flexibility in simulating various behaviour of the Maxwell--type dampers with high precision, thus, could be readily used in dynamic modelling of damped systems equipped with similar devices.
+By incorporating a controllable cubic replacement in the original power-law model, and a stability control algorithm in state determination, major numerical difficulties due to unbounded/large derivatives can be alleviated. The modified model with the proposed algorithm shows versatility and flexibility in simulating various behaviour of the Maxwell-type dampers with high precision, thus, could be readily used in dynamic modelling of damped systems equipped with similar devices.
 
 The new viscous damper and the Maxwell model have been implemented in \texttt{suanPan} \citep{Chang2018}. All examples are analysed on the same platform. Sample model scripts can be found online in this repository\footnote{https://github.com/TLCFEM/generalised-damper-algorithm-mssp}.
 \section{Acknowledgment}
