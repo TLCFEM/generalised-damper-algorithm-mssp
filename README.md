@@ -10,3 +10,8 @@ The numerical examples used in the paper are developed in `suanPan`. To perform 
 suanpan -f FRAME.supan
 ```
 
+The Maxwell model is implemented as a damper element,
+see [this](https://tlcfem.github.io/suanPan-manual/latest/Library/Element/Special/Damper02/) page.
+
+The quadrant damper is implemented as a material model,
+see [this](https://tlcfem.github.io/suanPan-manual/latest/Library/Material/Material1D/Viscosity/Viscosity02/) page.
